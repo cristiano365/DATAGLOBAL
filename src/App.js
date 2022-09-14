@@ -1,25 +1,27 @@
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import {Routes, Route} from 'react-router-dom';
+
+import AllCountry from './components/allCountry/AllCountry';
+import CountryInfo from './components/countryInfo/CountryInfo';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component{
+  render() {
+    return (
+      <>
+        <div className='header'>
+          <div className='container'>
+            <h1>Search country you want!</h1>
+          </div>
+        </div>
+        <div className='container'>
+          <Routes>
+            <Route path='/' element={<AllCountry/>} />
+            <Route path='/country/:countryName' element={<CountryInfo/>} />
+          </Routes>
+        </div>
+      </>
+    );
+  }
 }
-
-export default App;
